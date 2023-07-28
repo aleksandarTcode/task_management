@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index(){
 
-        $users = User::all();
+        $users = User::paginate(10);
         if($users->isEmpty()){
             return response()->json(['message' => 'No users found'], 404);
         }

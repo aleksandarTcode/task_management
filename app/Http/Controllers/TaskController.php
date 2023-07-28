@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::paginate(10);
         if ($tasks->isEmpty()) {
             return response()->json(['message' => 'No tasks found'], 404);
         }
