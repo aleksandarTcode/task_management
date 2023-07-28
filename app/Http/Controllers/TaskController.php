@@ -39,11 +39,13 @@ class TaskController extends Controller
     public function show(string $id)
     {
         $task = Task::find($id);
-        if ($task) {
-            return $task;
-        } else {
+        if (!$task) {
             return response()->json(['message' => 'Task not found'], 404);
         }
+
+        return $task;
+
+
     }
 
     /**
@@ -78,7 +80,7 @@ class TaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id, User $user)
+    public function destroy(string $id)
     {
 
         try {
