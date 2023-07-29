@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::factory(10)->create();
+        $users = User::factory(10)->create();
 
-
-        Task::factory(10)->create([
-            'creator_id' => $user->random()->id,
-            'assigned_user_id' => $user->random()->id,
-
-        ]);
+        for ($i = 0; $i < 10; $i++) {
+            Task::factory()->create([
+                'creator_id' => $users->random()->id,
+                'assigned_user_id' => $users->random()->id,
+            ]);
+        }
     }
 }
