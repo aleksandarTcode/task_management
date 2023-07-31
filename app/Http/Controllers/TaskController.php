@@ -45,7 +45,6 @@ class TaskController extends Controller
 
         return $task;
 
-
     }
 
     /**
@@ -53,8 +52,6 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
-
         $this->validateTask($request);
         $task = Task::find($id);
 
@@ -82,7 +79,6 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
-
         try {
             $task = Task::findOrFail($id);
             if($task->creator->id === auth()->id() || auth()->user()->role === 'Admin'){

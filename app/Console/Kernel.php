@@ -15,14 +15,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-//        $schedule->call(function () {
-//            $tasks = Task::where('due_date', '<=', now()->addDay())
-//                ->where('status', '!=', 'Completed')
-//                ->get();
-//            foreach ($tasks as $task) {
-//                $task->assignedTo->notify(new TaskDueNotification($task));
-//            }
-//        })->everySecond();
 
         // Send reminders 1 day before the due date
         $schedule->call(function () {
