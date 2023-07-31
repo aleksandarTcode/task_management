@@ -16,7 +16,11 @@ Once you have cloned the repository, navigate to the project directory and insta
 composer install
 ``` 
 ## Step 3: Create .env File
-Make a copy of the .env.example file and rename it to .env and update the necessary configuration options.
+Make a copy of the .env.example file and rename it to .env and update the necessary configuration options. Then, generate an application key.
+```
+cp .env.example .env
+php artisan key:generate
+```
 ## Step 4: Configure the Database
 In the .env file, configure the database connection settings according to your local database setup. For example, you might need to set the following:
 ```
