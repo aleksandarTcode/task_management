@@ -110,7 +110,7 @@ The API uses token-based authentication with Laravel Sanctum. To access protecte
   - due_date (required): Due date and time of the task (format: Y-m-d H:i:s).
   - assigned_user_id (required): ID of the user to whom the task is assigned.
 - Response: Returns the created task.
-#### Update a Task
+#### Update a Task (Only the creator or the assigned user is able to update the task)
 - URL: PUT /tasks/{task_id}
 - Description: Update an existing task.
 - Headers:
@@ -122,7 +122,7 @@ The API uses token-based authentication with Laravel Sanctum. To access protecte
   - due_date (required): Updated due date and time of the task (format: Y-m-d H:i:s).
   - assigned_user_id (optional): Updated ID of the user to whom the task is assigned (Only the creator can update this field).
 - Response: Returns a message indicating successful update.
-#### Delete a Task
+#### Delete a Task (Only the creator or an admin user is able to delete tasks)
 - URL: DELETE /tasks/{task_id}
 - Description: Delete an existing task.
 - Headers:
@@ -154,7 +154,9 @@ The API uses token-based authentication with Laravel Sanctum. To access protecte
 
 ## Step 9: Run Tests (Optional)
 To run the test suite, execute the following command:
+```
 php artisan test
+```
 This will run the PHPUnit tests and check the functionality of various API endpoints.
 
 ## Task Due Date Reminder (Notifications)
