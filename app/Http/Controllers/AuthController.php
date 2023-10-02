@@ -16,7 +16,7 @@ class AuthController extends Controller
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
             'role' => ['required', Rule::in(['Admin', 'Developer', 'Project Manager'])],
-            'password' => 'required|string|confirmed'
+            'password' => 'required|min:8|string|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
         ]);
 
         $user = User::create($fields);
